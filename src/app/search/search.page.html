@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>search</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content color="primary">
+
+    <ion-searchbar [formControl]="searchTerm" (change)="searchChanged()"></ion-searchbar>
+
+    <ion-list>
+
+        <ion-card *ngFor="let item of results">
+            <ion-label text-wrap>
+                <div>
+                    <img [src]="item.urlToImage" alt="">
+                    <h2> {{ item.title }} </h2>
+                    <h3>{{ item.author }}</h3>
+                </div>
+
+                <ion-button fill="outline" [href]="item.url" *ngIf="item.url" target="_blank">Read full article</ion-button>
+
+            </ion-label>
+        </ion-card>
+
+    </ion-list>
+
+</ion-content>
