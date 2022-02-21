@@ -21,9 +21,7 @@ export class SearchPage implements OnInit {
 
   async searchChanged() {
     const response = await this.searchService.searchData(this.searchTerm.value);
-    console.log(this.results);
     this.results=response.articles;
-    console.log(response.articles);
 
   }
 

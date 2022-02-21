@@ -22,8 +22,4 @@ export class SearchService {
    async searchData(title: string): Promise<Results> {
     return await this.http.get<Results>(this.url+title+'&from=sortBy=publishedAt&apiKey='+this.apiKey).toPromise();
   }
-
-  getDetails(id: any) {
-    return this.http.get(`${this.url}?i=${id}&plot=full&apikey=${this.apiKey}`);
-  }
 }
